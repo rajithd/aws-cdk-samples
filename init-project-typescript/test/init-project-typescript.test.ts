@@ -1,17 +1,14 @@
-// import * as cdk from 'aws-cdk-lib';
-// import { Template } from 'aws-cdk-lib/assertions';
-// import * as InitProjectTypescript from '../lib/init-project-typescript-stack';
+import { App } from 'aws-cdk-lib';
+import { Template } from 'aws-cdk-lib/assertions';
+import { InitProjectTypescriptStack } from '../lib/init-project-typescript-stack';
 
-// example test. To run these tests, uncomment this file along with the
-// example resource in lib/init-project-typescript-stack.ts
-test('SQS Queue Created', () => {
-//   const app = new cdk.App();
-//     // WHEN
-//   const stack = new InitProjectTypescript.InitProjectTypescriptStack(app, 'MyTestStack');
-//     // THEN
-//   const template = Template.fromStack(stack);
+test('S3 Bucket Created', () => {
+  const app = new App();
 
-//   template.hasResourceProperties('AWS::SQS::Queue', {
-//     VisibilityTimeout: 300
-//   });
+  // WHEN
+  const stack = new InitProjectTypescriptStack(app, 'MyTestStack');
+  // THEN
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties('AWS::S3::Bucket', {});
 });
