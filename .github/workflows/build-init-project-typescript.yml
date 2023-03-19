@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "init-project-typescript/**"
+      - "typescript/init-project-typescript/**"
   pull_request:
     types: [ opened, synchronize, reopened ]
 
@@ -36,7 +36,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Build
-        working-directory: ./init-project-typescript
+        working-directory: ./typescript/init-project-typescript
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -44,7 +44,7 @@ jobs:
           npm run build
 
       - name: Test
-        working-directory: ./init-project-typescript
+        working-directory: ./typescript/init-project-typescript
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
